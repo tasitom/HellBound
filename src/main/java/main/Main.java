@@ -64,7 +64,14 @@ public class Main {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == EXAMPLE_TAB.getKey()) event.accept(Items.DIAMOND);
+        if (event.getTabKey() == EXAMPLE_TAB.getKey()){
+            event.accept(ModItems.CORRUPTED_GRASS_ENVY_ITEM);
+            event.accept(ModItems.CORRUPTED_GRASS_GLUTTONY_ITEM);
+            event.accept(ModItems.CORRUPTED_GRASS_GREED_ITEM);
+            event.accept(ModItems.CORRUPTED_GRASS_LUST_ITEM);
+            event.accept(ModItems.CORRUPTED_GRASS_SLOTH_ITEM);
+            event.accept(ModItems.CORRUPTED_GRASS_PRIDE_ITEM);
+            event.accept(ModItems.CORRUPTED_GRASS_WRATH_ITEM);}
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

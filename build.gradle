@@ -122,7 +122,7 @@ dependencies {
 
     // Example mod dependency using a file as dependency
     // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
-
+    implementation files("libs/moogs_structures-neoforge-${mc_version}-${moogs_version}.jar")
     // Example project dependency using a sister or child project:
     // implementation project(":myproject")
 

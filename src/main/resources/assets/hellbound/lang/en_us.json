@@ -1,3 +1,10 @@
 {
-  "itemGroup.hellbound": "HellBound"
+  "itemGroup.hellbound": "HellBound",
+  "block.hellbound.corrupted_grass_pride":"Corrupted Grass",
+  "block.hellbound.corrupted_grass_envy":"Corrupted Grass",
+  "block.hellbound.corrupted_grass_sloth":"Corrupted Grass",
+  "block.hellbound.corrupted_grass_wrath":"Corrupted Grass",
+  "block.hellbound.corrupted_grass_lust":"Corrupted Grass",
+  "block.hellbound.corrupted_grass_gluttony":"Corrupted Grass",
+  "block.hellbound.corrupted_grass_greed":"Corrupted Grass"
 }
