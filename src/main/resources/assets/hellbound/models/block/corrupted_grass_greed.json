@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "hellbound:block/greed_grass_bottom",
+    "top": "hellbound:block/greed_grass_top",
+    "side": "hellbound:block/greed_grass_side"
+  }
+}
