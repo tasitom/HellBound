@@ -1,5 +1,3 @@
 {
-  "itemGroup.hellbound": "Example Mod Tab",
-  "block.hellbound.example_block": "Example Block",
-  "item.hellbound.example_item": "Example Item"
+  "itemGroup.hellbound": "HellBound"
 }
