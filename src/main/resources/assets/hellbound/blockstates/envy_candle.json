@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "hellbound:block/envy_candle"
+    },
+    "lit=true": {
+      "model": "hellbound:block/envy_candle_lit"
+    }
+  }
+}

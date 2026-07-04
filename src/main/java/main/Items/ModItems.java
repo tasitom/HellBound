@@ -1,5 +1,6 @@
 package main.Items;
 
+import com.jcraft.jorbis.Block;
 import main.Blocks.ModBlocks;
 import main.Main;
 import net.minecraft.world.item.BlockItem;
@@ -17,8 +18,9 @@ public class ModItems {
     public static DeferredItem<BlockItem> CORRUPTED_GRASS_WRATH_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CORRUPTED_GRASS_WRATH);
     public static DeferredItem<BlockItem> CORRUPTED_GRASS_PRIDE_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CORRUPTED_GRASS_PRIDE);
     public static DeferredItem<BlockItem> CORRUPTED_GRASS_ENVY_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CORRUPTED_GRASS_ENVY);
-
-
+    public static DeferredItem<BlockItem> FLESH_BLOCK_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.FLESH_BLOCK);
+    public static DeferredItem<BlockItem> CANDLE_ENVY_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CANDLE_ENVY);
+    public static DeferredItem<BlockItem> CANDLE_GLUTTONY_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CANDLE_GLUTTONY);
 
     public void register(IEventBus iEventBus){
         ITEMS.register(iEventBus);

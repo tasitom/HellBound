@@ -1,6 +1,13 @@
 package main.Blocks;
 
 import main.Main;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -16,7 +23,9 @@ public class ModBlocks {
     public static final DeferredBlock<CorruptedBlocks> CORRUPTED_GRASS_GREED = BLOCKS.registerBlock("corrupted_grass_greed",CorruptedBlocks::new);
     public static final DeferredBlock<CorruptedBlocks> CORRUPTED_GRASS_LUST = BLOCKS.registerBlock("corrupted_grass_lust",CorruptedBlocks::new);
     public static final DeferredBlock<CorruptedBlocks> CORRUPTED_GRASS_GLUTTONY = BLOCKS.registerBlock("corrupted_grass_gluttony",CorruptedBlocks::new);
-
+    public static final DeferredBlock<Block> FLESH_BLOCK = BLOCKS.registerBlock("flesh_block",Block::new);
+    public static final DeferredBlock<CorruptedCandle> CANDLE_ENVY = BLOCKS.registerBlock("envy_candle",properties -> new CorruptedCandle(BlockBehaviour.Properties.of().destroyTime(10).lightLevel(state -> state.getValue(CorruptedCandle.LIT) ? 6 :0),ParticleTypes.SOUL_FIRE_FLAME));
+    public static final DeferredBlock<CorruptedCandle> CANDLE_GLUTTONY = BLOCKS.registerBlock("gluttony_candle",properties -> new CorruptedCandle(BlockBehaviour.Properties.of().destroyTime(10).lightLevel(state -> state.getValue(CorruptedCandle.LIT) ? 6 :0),ParticleTypes.FLAME));
 
     public void register(IEventBus iEventBus){
         BLOCKS.register(iEventBus);

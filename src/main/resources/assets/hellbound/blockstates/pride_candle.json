@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "hellbound:block/pride_candle"
+    },
+    "lit=true": {
+      "model": "hellbound:block/pride_candle_lit"
+    }
+  }
+}
