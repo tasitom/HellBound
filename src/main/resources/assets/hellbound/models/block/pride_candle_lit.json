@@ -3,8 +3,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"1": "hellbound:block/gluttony_candle",
-		"particle": "hellbound:block/gluttony_candle"
+		"1": "hellbound:block/pride_candle_lit",
+		"particle": "hellbound:block/pride_candle_lit"
 	},
 	"elements": [
 		{

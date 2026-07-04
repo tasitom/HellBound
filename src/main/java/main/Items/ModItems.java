@@ -21,6 +21,11 @@ public class ModItems {
     public static DeferredItem<BlockItem> FLESH_BLOCK_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.FLESH_BLOCK);
     public static DeferredItem<BlockItem> CANDLE_ENVY_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CANDLE_ENVY);
     public static DeferredItem<BlockItem> CANDLE_GLUTTONY_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CANDLE_GLUTTONY);
+    public static DeferredItem<BlockItem> CANDLE_PRIDE_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CANDLE_PRIDE);
+    public static DeferredItem<BlockItem> CANDLE_LUST_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CANDLE_LUST);
+    public static DeferredItem<BlockItem> CANDLE_WRATH_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CANDLE_WRATH);
+    public static DeferredItem<BlockItem> CANDLE_SLOTH_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CANDLE_SLOTH);
+    public static DeferredItem<BlockItem> CANDLE_GREED_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CANDLE_GREED);
 
     public void register(IEventBus iEventBus){
         ITEMS.register(iEventBus);

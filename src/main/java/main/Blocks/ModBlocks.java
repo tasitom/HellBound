@@ -26,6 +26,11 @@ public class ModBlocks {
     public static final DeferredBlock<Block> FLESH_BLOCK = BLOCKS.registerBlock("flesh_block",Block::new);
     public static final DeferredBlock<CorruptedCandle> CANDLE_ENVY = BLOCKS.registerBlock("envy_candle",properties -> new CorruptedCandle(BlockBehaviour.Properties.of().destroyTime(10).lightLevel(state -> state.getValue(CorruptedCandle.LIT) ? 6 :0),ParticleTypes.SOUL_FIRE_FLAME));
     public static final DeferredBlock<CorruptedCandle> CANDLE_GLUTTONY = BLOCKS.registerBlock("gluttony_candle",properties -> new CorruptedCandle(BlockBehaviour.Properties.of().destroyTime(10).lightLevel(state -> state.getValue(CorruptedCandle.LIT) ? 6 :0),ParticleTypes.FLAME));
+    public static final DeferredBlock<CorruptedCandle> CANDLE_PRIDE = BLOCKS.registerBlock("pride_candle",properties -> new CorruptedCandle(BlockBehaviour.Properties.of().destroyTime(10).lightLevel(state -> state.getValue(CorruptedCandle.LIT) ? 6 :0),ParticleTypes.FLAME));
+    public static final DeferredBlock<CorruptedCandle> CANDLE_LUST = BLOCKS.registerBlock("lust_candle",properties -> new CorruptedCandle(BlockBehaviour.Properties.of().destroyTime(10).lightLevel(state -> state.getValue(CorruptedCandle.LIT) ? 6 :0),ParticleTypes.FLAME));
+    public static final DeferredBlock<CorruptedCandle> CANDLE_WRATH = BLOCKS.registerBlock("wrath_candle",properties -> new CorruptedCandle(BlockBehaviour.Properties.of().destroyTime(10).lightLevel(state -> state.getValue(CorruptedCandle.LIT) ? 6 :0),ParticleTypes.FLAME));
+    public static final DeferredBlock<CorruptedCandle> CANDLE_SLOTH = BLOCKS.registerBlock("sloth_candle",properties -> new CorruptedCandle(BlockBehaviour.Properties.of().destroyTime(10).lightLevel(state -> state.getValue(CorruptedCandle.LIT) ? 6 :0),ParticleTypes.FLAME));
+    public static final DeferredBlock<CorruptedCandle> CANDLE_GREED = BLOCKS.registerBlock("greed_candle",properties -> new CorruptedCandle(BlockBehaviour.Properties.of().destroyTime(10).lightLevel(state -> state.getValue(CorruptedCandle.LIT) ? 6 :0),ParticleTypes.FLAME));
 
     public void register(IEventBus iEventBus){
         BLOCKS.register(iEventBus);
