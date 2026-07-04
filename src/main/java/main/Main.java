@@ -71,7 +71,16 @@ public class Main {
             event.accept(ModItems.CORRUPTED_GRASS_LUST_ITEM);
             event.accept(ModItems.CORRUPTED_GRASS_SLOTH_ITEM);
             event.accept(ModItems.CORRUPTED_GRASS_PRIDE_ITEM);
-            event.accept(ModItems.CORRUPTED_GRASS_WRATH_ITEM);}
+            event.accept(ModItems.CORRUPTED_GRASS_WRATH_ITEM);
+            event.accept(ModItems.CANDLE_ENVY_ITEM);
+            event.accept(ModItems.CANDLE_GLUTTONY_ITEM);
+            event.accept(ModItems.CANDLE_GREED_ITEM);
+            event.accept(ModItems.CANDLE_LUST_ITEM);
+            event.accept(ModItems.CANDLE_SLOTH_ITEM);
+            event.accept(ModItems.CANDLE_PRIDE_ITEM);
+            event.accept(ModItems.CANDLE_WRATH_ITEM);
+            event.accept(ModItems.FLESH_BLOCK_ITEM);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
