@@ -1,19 +1,29 @@
 package main.Blocks;
 
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class CorruptedBlocks extends Block {
+import java.util.List;
 
-    public CorruptedBlocks(Properties p_49795_) {
+public class CorruptedBlocks extends Block {
+    private String type;
+    private ChatFormatting color;
+    public CorruptedBlocks(Properties p_49795_,String type,ChatFormatting color) {
         super(p_49795_);
+        this.type=type;
+        this.color = color;
     }
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
@@ -39,5 +49,10 @@ public class CorruptedBlocks extends Block {
             }
         }
         }
+    }
+
+    @Override
+    public void appendHoverText(ItemStack p_49816_, Item.TooltipContext p_339606_, List<Component> p_49818_, TooltipFlag p_49819_) {
+        p_49818_.add(Component.literal("Corruption: ").append(this.type).withStyle(this.color));
     }
 }
