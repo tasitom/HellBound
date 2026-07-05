@@ -16,7 +16,7 @@ public class RuinedPaper extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level p_41432_, Player p_41433_, InteractionHand p_41434_) {
-        p_41433_.displayClientMessage(Component.literal("Nigga"),true);
+        p_41433_.displayClientMessage(Component.literal("Testing"),true);
         return super.use(p_41432_, p_41433_, p_41434_);
     }
 }
