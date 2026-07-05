@@ -3,6 +3,7 @@ package main.Items;
 import com.jcraft.jorbis.Block;
 import main.Blocks.ModBlocks;
 import main.Main;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
@@ -26,7 +27,7 @@ public class ModItems {
     public static DeferredItem<BlockItem> CANDLE_WRATH_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CANDLE_WRATH);
     public static DeferredItem<BlockItem> CANDLE_SLOTH_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CANDLE_SLOTH);
     public static DeferredItem<BlockItem> CANDLE_GREED_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CANDLE_GREED);
-
+    public static DeferredItem<RuinedPaper> RUINED_PAPER = ITEMS.register("ruined_paper",properties -> new RuinedPaper(new Item.Properties()) );
     public void register(IEventBus iEventBus){
         ITEMS.register(iEventBus);
     }
