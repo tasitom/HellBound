@@ -1,6 +1,6 @@
 {
   "type": "moogs_structures:moogs_structures_generic_jigsaw_structure",
-  "start_pool": "hellbound:tier1/start_pool",
+  "start_pool": "hellbound:tier1_gluttony/start_pool",
   "size": 1,
   "biomes": "#minecraft:is_forest",
   "project_start_to_heightmap": "WORLD_SURFACE_WG",
