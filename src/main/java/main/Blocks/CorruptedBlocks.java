@@ -30,7 +30,7 @@ public class CorruptedBlocks extends Block {
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         super.randomTick(state, level, pos, random);
-        if (random.nextInt(200)==0){
+        if (random.nextInt(20)==0){
         for (BlockPos checkPos : BlockPos.betweenClosed(pos.offset(-1, -1, -1), pos.offset(1, 1, 1))) {
             if (checkPos.equals(pos)) continue;
             BlockState checkState = level.getBlockState(checkPos);
