@@ -1,8 +1,7 @@
 package main.Blocks;
 
 
-import com.mojang.logging.LogUtils;
-import io.netty.util.internal.logging.InternalLogger;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -15,9 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.slf4j.Logger;
 
-import java.util.Random;
 
 
 public class CorruptedCandle extends CandleBlock {
@@ -49,8 +46,7 @@ public class CorruptedCandle extends CandleBlock {
             p_220698_.setBlockAndUpdate(p_220699_,p_220697_.setValue(LIT,false));
         }
         if (p_220697_.getValue(LIT)){
-            Random random = new Random();
-            if (random.nextInt(2)==0){
+            if (p_220700_.nextInt(2)==0){
             p_220698_.addParticle(particleTypes,p_220699_.getX()+0.5,p_220699_.getY()+1,p_220699_.getZ()+0.5,0,0.01,0);
         }
         }

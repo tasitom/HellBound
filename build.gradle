@@ -130,6 +130,7 @@ dependencies {
     // Example mod dependency using a file as dependency
     // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
     implementation files("libs/moogs_structures-neoforge-${mc_version}-${moogs_version}.jar")
+    implementation files("libs/Patchouli-${mc_version}-${patchouli_version}-NEOFORGE.jar")
     //GeckoLib
     implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
     // Example project dependency using a sister or child project:

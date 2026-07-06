@@ -80,6 +80,7 @@ public class Main {
             event.accept(ModItems.CANDLE_PRIDE_ITEM);
             event.accept(ModItems.CANDLE_WRATH_ITEM);
             event.accept(ModItems.FLESH_BLOCK_ITEM);
+            event.accept(ModItems.RUINED_PAPER);
         }
     }
 

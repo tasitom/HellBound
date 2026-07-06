@@ -2,13 +2,8 @@ package main.Blocks;
 
 import main.Main;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -32,7 +27,7 @@ public class ModBlocks {
     public static final DeferredBlock<CorruptedCandle> CANDLE_WRATH = BLOCKS.registerBlock("wrath_candle",properties -> new CorruptedCandle(BlockBehaviour.Properties.of().destroyTime(1).lightLevel(state -> state.getValue(CorruptedCandle.LIT) ? 8 :0),ParticleTypes.SOUL_FIRE_FLAME));
     public static final DeferredBlock<CorruptedCandle> CANDLE_SLOTH = BLOCKS.registerBlock("sloth_candle",properties -> new CorruptedCandle(BlockBehaviour.Properties.of().destroyTime(1).lightLevel(state -> state.getValue(CorruptedCandle.LIT) ? 8 :0),ParticleTypes.SOUL_FIRE_FLAME));
     public static final DeferredBlock<CorruptedCandle> CANDLE_GREED = BLOCKS.registerBlock("greed_candle",properties -> new CorruptedCandle(BlockBehaviour.Properties.of().destroyTime(1).lightLevel(state -> state.getValue(CorruptedCandle.LIT) ? 8 :0),ParticleTypes.SOUL_FIRE_FLAME));
-    public static final DeferredBlock<RuinedPaperBlock> RUINED_PAPER_BLOCK = BLOCKS.registerBlock("ruined_paper_block",properties -> new RuinedPaperBlock(BlockBehaviour.Properties.of().destroyTime(0)));
+    public static final DeferredBlock<RuinedPaperBlock> RUINED_PAPER_BLOCK = BLOCKS.registerBlock("ruined_page_block",properties -> new RuinedPaperBlock(BlockBehaviour.Properties.of().destroyTime(0).noOcclusion()));
     public void register(IEventBus iEventBus){
         BLOCKS.register(iEventBus);
     }

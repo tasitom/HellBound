@@ -1,9 +1,7 @@
 package main.Items;
 
-import com.jcraft.jorbis.Block;
 import main.Blocks.ModBlocks;
 import main.Main;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
