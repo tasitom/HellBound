@@ -2,10 +2,16 @@ package main.Blocks;
 
 
 
+import main.Corruption;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -15,13 +21,18 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.List;
 
 
-public class CorruptedCandle extends CandleBlock {
+public class CorruptedCandle extends CandleBlock implements Corruption {
     private  SimpleParticleType particleTypes ;
-    public CorruptedCandle(Properties p_152801_,SimpleParticleType particleTypes) {
+    private String type;
+    private ChatFormatting color;
+    public CorruptedCandle(Properties p_152801_,SimpleParticleType particleTypes,String type,ChatFormatting color) {
         super(p_152801_);
         this.particleTypes = particleTypes;
+        this.type=type;
+        this.color=color;
     }
     public static VoxelShape Candle_box = Shapes.or(
             Block.box(4.8, 0, 4.8, 11,5 , 11),
@@ -75,5 +86,10 @@ public class CorruptedCandle extends CandleBlock {
                     dx * 0.2, dy * 0.2, dz * 0.2
             );
         }
+    }
+    @Override
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+        tooltipComponents.add(SetDescription(type,color));
     }
 }

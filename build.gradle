@@ -40,8 +40,8 @@ neoForge {
     version = project.neo_version
 
     parchment {
-        mappingsVersion = project.parchment_mappings_version
-        minecraftVersion = project.parchment_minecraft_version
+        mappingsVersion = "2024.11.17"
+        minecraftVersion = "1.21.1"
     }
 
     // This line is optional. Access Transformers are automatically detected
@@ -130,7 +130,6 @@ dependencies {
     // Example mod dependency using a file as dependency
     // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
     implementation files("libs/moogs_structures-neoforge-${mc_version}-${moogs_version}.jar")
-    implementation files("libs/Patchouli-${mc_version}-${patchouli_version}-NEOFORGE.jar")
     //GeckoLib
     implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
     // Example project dependency using a sister or child project:

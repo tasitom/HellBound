@@ -1,6 +1,7 @@
 package main.Blocks;
 
 
+import main.Corruption;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -17,13 +18,13 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 
-public class CorruptedBlocks extends Block {
+public class CorruptedBlocks extends Block implements Corruption{
     private String type;
     private ChatFormatting color;
     public CorruptedBlocks(Properties p_49795_,String type,ChatFormatting color) {
         super(p_49795_);
         this.type=type;
-        this.color = color;
+        this.color=color;
     }
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
@@ -46,13 +47,15 @@ public class CorruptedBlocks extends Block {
             BlockState checkState = level.getBlockState(checkPos);
             if (checkState.is(Blocks.GRASS_BLOCK)) {
                 level.setBlockAndUpdate(checkPos,state);
+                return;
             }
         }
         }
     }
 
     @Override
-    public void appendHoverText(ItemStack p_49816_, Item.TooltipContext p_339606_, List<Component> p_49818_, TooltipFlag p_49819_) {
-        p_49818_.add(Component.literal("Corruption: ").append(this.type).withStyle(this.color));
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+        tooltipComponents.add(SetDescription(type,color));
     }
 }
