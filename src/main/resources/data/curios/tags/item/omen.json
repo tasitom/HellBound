@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "hellbound:gluttony_omen",
+    "hellbound:greed_omen",
+    "hellbound:pride_omen",
+    "hellbound:lust_omen",
+    "hellbound:envy_omen",
+    "hellbound:wrath_omen",
+    "hellbound:sloth_omen"
+  ]
+}

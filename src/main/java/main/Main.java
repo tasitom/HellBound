@@ -3,10 +3,12 @@ package main;
 import com.mojang.logging.LogUtils;
 import main.Blocks.ModBlocks;
 import main.Items.ModItems;
+import main.curios.CurioItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
@@ -26,6 +28,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.slf4j.Logger;
+import top.theillusivec4.curios.api.CuriosApi;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Main.MODID)
@@ -45,6 +48,7 @@ public class Main {
         modEventBus.addListener(this::commonSetup);
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
+        CurioItems.OMENS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -81,6 +85,13 @@ public class Main {
             event.accept(ModItems.CANDLE_WRATH_ITEM);
             event.accept(ModItems.FLESH_BLOCK_ITEM);
             event.accept(ModItems.RUINED_PAPER);
+            event.accept(CurioItems.GLUTTONY_OMEN);
+            event.accept(CurioItems.ENVY_OMEN);
+            event.accept(CurioItems.GREED_OMEN);
+            event.accept(CurioItems.LUST_OMEN);
+            event.accept(CurioItems.SLOTH_OMEN);
+            event.accept(CurioItems.PRIDE_OMEN);
+            event.accept(CurioItems.WRATH_OMEN);
         }
     }
 
