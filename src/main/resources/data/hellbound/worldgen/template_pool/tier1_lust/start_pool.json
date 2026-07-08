@@ -1,11 +1,12 @@
+
 {
-  "name": "hellbound:tier1/start_pool",
+  "name": "hellbound:tier1_lust/start_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "hellbound:tier1",
+        "location": "hellbound:tier1/tier1_lust",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

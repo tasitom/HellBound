@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "hellbound:block/gluttony_candle"
+    },
+    "lit=true": {
+      "model": "hellbound:block/gluttony_candle_lit"
+    }
+  }
+}

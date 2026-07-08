@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "hellbound:block/sloth_candle"
+    },
+    "lit=true": {
+      "model": "hellbound:block/sloth_candle_lit"
+    }
+  }
+}

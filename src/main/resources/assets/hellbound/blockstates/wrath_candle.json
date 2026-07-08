@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "hellbound:block/wrath_candle"
+    },
+    "lit=true": {
+      "model": "hellbound:block/wrath_candle_lit"
+    }
+  }
+}

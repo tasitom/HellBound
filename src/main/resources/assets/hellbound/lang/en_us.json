@@ -6,5 +6,14 @@
   "block.hellbound.corrupted_grass_wrath":"Corrupted Grass",
   "block.hellbound.corrupted_grass_lust":"Corrupted Grass",
   "block.hellbound.corrupted_grass_gluttony":"Corrupted Grass",
-  "block.hellbound.corrupted_grass_greed":"Corrupted Grass"
+  "block.hellbound.corrupted_grass_greed":"Corrupted Grass",
+  "block.hellbound.pride_candle": "Ethereal Candle",
+  "block.hellbound.envy_candle": "Ethereal Candle",
+  "block.hellbound.wrath_candle": "Ethereal Candle",
+  "block.hellbound.lust_candle": "Ethereal Candle",
+  "block.hellbound.sloth_candle": "Ethereal Candle",
+  "block.hellbound.gluttony_candle": "Ethereal Candle",
+  "block.hellbound.greed_candle": "Ethereal Candle",
+  "block.hellbound.flesh_block": "Flesh Block",
+  "item.hellbound.ruined_page": "Ruined Page"
 }
