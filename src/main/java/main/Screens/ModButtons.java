@@ -21,5 +21,4 @@ public class ModButtons extends ImageButton {
     public int Get_Color(){
         return this.color;
     }
-
 }

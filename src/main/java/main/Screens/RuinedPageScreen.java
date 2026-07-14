@@ -3,34 +3,26 @@ package main.Screens;
 import com.mojang.math.Axis;
 import main.Main;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
 import java.awt.*;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RuinedPageScreen extends Screen {
     private static final ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(Main.MODID,"textures/gui/ruined_page.png");
     private static final ResourceLocation first_ring = ResourceLocation.fromNamespaceAndPath(Main.MODID,"textures/gui/box1.png");
     private static final ResourceLocation inside_ring = ResourceLocation.fromNamespaceAndPath(Main.MODID,"textures/gui/inside_ring.png");
     private static final ResourceLocation circle = ResourceLocation.fromNamespaceAndPath(Main.MODID,"textures/gui/circle.png");
-    private static final WidgetSprites Gluttony_image = new WidgetSprites(
-            ResourceLocation.fromNamespaceAndPath(Main.MODID, "button_neutral"),
-            ResourceLocation.fromNamespaceAndPath(Main.MODID, "button_clicked"),
-            ResourceLocation.fromNamespaceAndPath(Main.MODID, "button_hovered"),
-            ResourceLocation.fromNamespaceAndPath(Main.MODID, "button_clicked")
-            );
-    private ModButtons Envy_button;
-    private ModButtons Greed_button;
-    private ModButtons Wrath_button;
-    private ModButtons Gluttony_button;
-    private ModButtons Pride_button;
-    private ModButtons Sloth_button;
-    private ModButtons Lust_button;
+    private static int btnSize = 15;
+    private record SinDef(String name, int dx, int dy, int color) {}
+    private final Map<String, ModButtons> sinButtons = new LinkedHashMap<>();
     public RuinedPageScreen(Component title) {
         super(title);
     }
@@ -42,33 +34,37 @@ public class RuinedPageScreen extends Screen {
         buttonList.clear();
         int panelX = (width / 2) - (200 / 2);
         int panelY = (height / 4) - 15;
-        int btnSize = 15;
-        Greed_button = new ModButtons(panelX, panelY+40, btnSize, btnSize, Gluttony_image,
-                button -> System.out.println("Image Button Clicked!"),"Greed", ChatFormatting.YELLOW.getColor());
-        Wrath_button = new ModButtons(panelX-39, panelY+20, btnSize, btnSize, Gluttony_image,
-                button -> System.out.println("Image Button Clicked!"),"Wrath",ChatFormatting.BLUE.getColor());
-        Gluttony_button = new ModButtons(panelX+40, panelY+20, btnSize, btnSize, Gluttony_image,
-                button -> System.out.println("Image Button Clicked!"),"Gluttony",ChatFormatting.RED.getColor());
-        Sloth_button = new ModButtons(panelX+39, panelY-20, btnSize, btnSize, Gluttony_image,
-                button -> System.out.println("Image Button Clicked!"),"Sloth",ChatFormatting.AQUA.getColor());
-        Pride_button = new ModButtons(panelX, panelY, btnSize, btnSize, Gluttony_image,
-                button -> System.out.println("Image Button Clicked!"),"Pride",ChatFormatting.GRAY.getColor());
-        Lust_button = new ModButtons(panelX-40, panelY-20, btnSize, btnSize, Gluttony_image,
-                button -> System.out.println("Image Button Clicked!"),"Lust",ChatFormatting.LIGHT_PURPLE.getColor());
-        Envy_button = new ModButtons(panelX, panelY-40, btnSize, btnSize, Gluttony_image,
-                button -> System.out.println("Image Button Clicked!"),"Envy",ChatFormatting.GREEN.getColor());
-        buttonList.add(Greed_button);
-        buttonList.add(Wrath_button);
-        buttonList.add(Gluttony_button);
-        buttonList.add(Sloth_button);
-        buttonList.add(Lust_button);
-        buttonList.add(Envy_button);
-        buttonList.add(Pride_button);
-        for (ModButtons button : buttonList){
-            this.addRenderableWidget(button);
-        }
-
+        initSinButtons(panelX,panelY);
     }
+    private WidgetSprites CreateWidget(String name){
+        return new WidgetSprites(ResourceLocation.fromNamespaceAndPath(Main.MODID, name+"_neutral"),
+                ResourceLocation.fromNamespaceAndPath(Main.MODID, name+"_clicked"),
+                ResourceLocation.fromNamespaceAndPath(Main.MODID, name+"_hovered"),
+                ResourceLocation.fromNamespaceAndPath(Main.MODID, name+"_clicked"));
+    }
+    private void initSinButtons(int panelX, int panelY) {
+        List<SinDef> defs = List.of(
+                new SinDef("Pride",0,0, ChatFormatting.GRAY.getColor()),
+                new SinDef("Envy",0,-40, ChatFormatting.GREEN.getColor()),
+                new SinDef("Sloth",39,-20, ChatFormatting.AQUA.getColor()),
+                new SinDef("Gluttony",40,20, ChatFormatting.RED.getColor()),
+                new SinDef("Greed",0,43, ChatFormatting.YELLOW.getColor()),
+                new SinDef("Wrath",-39,20, ChatFormatting.BLUE.getColor()),
+                new SinDef("Lust",-40,-20, ChatFormatting.LIGHT_PURPLE.getColor())
+        );
+        for (SinDef d : defs) {
+            ModButtons btn = new ModButtons(
+                    panelX + d.dx(), panelY + d.dy(), btnSize, btnSize,
+                    CreateWidget("button"),
+                    b ->System.out.println(d.name+" Button pressed"),d.name(), d.color());
+            sinButtons.put(d.name(), btn);
+            buttonList.add(btn);
+        }
+        for (ModButtons buttons : buttonList){
+            addRenderableWidget(buttons);
+        }
+    }
+
 
     @Override
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
@@ -97,8 +93,8 @@ public class RuinedPageScreen extends Screen {
                 guiGraphics.drawCenteredString(
                         this.font,
                         Component.literal(button.Get_Type()),
-                        Pride_button.getX()+6,
-                        Pride_button.getY() -  100,
+                        sinButtons.get("Pride").getX()+6,
+                        sinButtons.get("Pride").getY() -  100,
                         button.Get_Color()
                 );
             }
