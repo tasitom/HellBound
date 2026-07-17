@@ -28,6 +28,7 @@ public class ModBlocks {
     public static final DeferredBlock<CorruptedCandle> CANDLE_SLOTH = BLOCKS.registerBlock("sloth_candle",properties -> new CorruptedCandle(BlockBehaviour.Properties.of().destroyTime(1).lightLevel(state -> state.getValue(CorruptedCandle.LIT) ? 8 :0),ParticleTypes.SOUL_FIRE_FLAME,"Sloth",ChatFormatting.AQUA));
     public static final DeferredBlock<CorruptedCandle> CANDLE_GREED = BLOCKS.registerBlock("greed_candle",properties -> new CorruptedCandle(BlockBehaviour.Properties.of().destroyTime(1).lightLevel(state -> state.getValue(CorruptedCandle.LIT) ? 8 :0),ParticleTypes.SOUL_FIRE_FLAME,"Greed",ChatFormatting.YELLOW));
     public static final DeferredBlock<RuinedPaperBlock> RUINED_PAPER_BLOCK = BLOCKS.registerBlock("ruined_page_block",properties -> new RuinedPaperBlock(BlockBehaviour.Properties.of().destroyTime(0).noOcclusion()));
+    public static final DeferredBlock<AltarControllerBlock> Altar_BLOCK = BLOCKS.registerBlock("altar_block",properties -> new AltarControllerBlock(BlockBehaviour.Properties.of()));
     public void register(IEventBus iEventBus){
         BLOCKS.register(iEventBus);
     }

@@ -26,6 +26,8 @@ public class ModItems {
     public static DeferredItem<BlockItem> CANDLE_SLOTH_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CANDLE_SLOTH);
     public static DeferredItem<BlockItem> CANDLE_GREED_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CANDLE_GREED);
     public static DeferredItem<RuinedPaper> RUINED_PAPER = ITEMS.register("ruined_page",properties -> new RuinedPaper(new Item.Properties()) );
+    public static DeferredItem<BlockItem> ALTAR_BLOCK_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.Altar_BLOCK);
+
     public void register(IEventBus iEventBus){
         ITEMS.register(iEventBus);
     }

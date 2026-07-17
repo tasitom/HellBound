@@ -2,6 +2,7 @@ package main;
 
 import com.mojang.logging.LogUtils;
 import main.Blocks.ModBlocks;
+import main.Entities.ModEntities;
 import main.Items.ModItems;
 import main.curios.CurioItems;
 import net.minecraft.client.Minecraft;
@@ -48,6 +49,7 @@ public class Main {
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         CurioItems.OMENS.register(modEventBus);
+        ModEntities.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);

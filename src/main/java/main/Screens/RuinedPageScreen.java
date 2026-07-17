@@ -3,7 +3,6 @@ package main.Screens;
 import com.mojang.math.Axis;
 import main.Main;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.client.gui.screens.Screen;
@@ -20,7 +19,7 @@ public class RuinedPageScreen extends Screen {
     private static final ResourceLocation first_ring = ResourceLocation.fromNamespaceAndPath(Main.MODID,"textures/gui/box1.png");
     private static final ResourceLocation inside_ring = ResourceLocation.fromNamespaceAndPath(Main.MODID,"textures/gui/inside_ring.png");
     private static final ResourceLocation circle = ResourceLocation.fromNamespaceAndPath(Main.MODID,"textures/gui/circle.png");
-    private static int btnSize = 15;
+    private static final int btnSize = 15;
     private record SinDef(String name, int dx, int dy, int color) {}
     private final Map<String, ModButtons> sinButtons = new LinkedHashMap<>();
     public RuinedPageScreen(Component title) {
