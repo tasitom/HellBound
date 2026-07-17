@@ -1,5 +1,6 @@
 package main.Entities;
 
+import main.Blocks.AltarControllerBlock;
 import main.Blocks.ModBlocks;
 import main.Multiblock.SinAltarPattern;
 import net.minecraft.core.BlockPos;
@@ -18,8 +19,9 @@ public class AltarBe extends BlockEntity {
 
     public static void tick(Level level, BlockPos pos, BlockState state, AltarBe be) {
         if (level.isClientSide) return;
+        int stage = state.getValue(AltarControllerBlock.altar_state);
         boolean nowFormed = SinAltarPattern.SIN_ALTAR.matches(level, pos);
-        if (nowFormed != be.formed) {
+        if (nowFormed != be.formed && stage==2 ) {
             be.formed = nowFormed;
             be.setChanged();
             level.sendBlockUpdated(pos, state, state, Block.UPDATE_ALL);

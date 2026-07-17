@@ -17,15 +17,18 @@ public class SinAltarPattern {
 
     private static SinAltarPattern build() {
         Map<BlockPos, Predicate<BlockState>> layout = new HashMap<>();
-        for (int x = -1; x <= 1; x++) {
-            for (int z = -1; z <= 1; z++) {
-                layout.put(new BlockPos(x, -1, z), s -> s.is(Blocks.POLISHED_BLACKSTONE));
-            }
-        }
-        layout.put(new BlockPos(-1, 0, -1), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
-        layout.put(new BlockPos(1, 0, -1), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
-        layout.put(new BlockPos(-1, 0, 1), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
-        layout.put(new BlockPos(1, 0, 1), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
+        layout.put(new BlockPos(-3, 0, 0), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
+        layout.put(new BlockPos(3, 0, 0), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
+        layout.put(new BlockPos(0, 0, 3), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
+        layout.put(new BlockPos(0, 0, -3), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
+        layout.put(new BlockPos(-3, 1, 3), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
+        layout.put(new BlockPos(3, 1, -3), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
+        layout.put(new BlockPos(3, 1, 3), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
+        layout.put(new BlockPos(-3, 1, -3), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
+        layout.put(new BlockPos(-5, 2, 0), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
+        layout.put(new BlockPos(5, 2, 0), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
+        layout.put(new BlockPos(0, 2, 5), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
+        layout.put(new BlockPos(0, 2, -5), s -> s.is(ModBlocks.CANDLE_ENVY.get()));
         return new SinAltarPattern(layout);
     }
 
