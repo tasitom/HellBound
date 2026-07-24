@@ -38,20 +38,20 @@ public class CorruptedBlocks extends Block implements Corruption{
                 }
             }
     }
-    @Override
-    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        super.randomTick(state, level, pos, random);
-        if (random.nextInt(20)==0){
-        for (BlockPos checkPos : BlockPos.betweenClosed(pos.offset(-1, -1, -1), pos.offset(1, 1, 1))) {
-            if (checkPos.equals(pos)) continue;
-            BlockState checkState = level.getBlockState(checkPos);
-            if (checkState.is(Blocks.GRASS_BLOCK)) {
-                level.setBlockAndUpdate(checkPos,state);
-                return;
-            }
-        }
-        }
-    }
+//    @Override
+//    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+//        super.randomTick(state, level, pos, random);
+//        if (random.nextInt(20)==0){
+//        for (BlockPos checkPos : BlockPos.betweenClosed(pos.offset(-1, -1, -1), pos.offset(1, 1, 1))) {
+//            if (checkPos.equals(pos)) continue;
+//            BlockState checkState = level.getBlockState(checkPos);
+//            if (checkState.is(Blocks.GRASS_BLOCK)) {
+//                level.setBlockAndUpdate(checkPos,state);
+//                return;
+//            }
+//        }
+//        }
+//    }
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {

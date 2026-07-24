@@ -14,6 +14,9 @@ public class ModEntities {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AltarBe>> ALTAR_BE =
             BLOCK_ENTITIES.register("altar_be", () ->
                     BlockEntityType.Builder.of(AltarBe::new, ModBlocks.Altar_BLOCK.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PedestalEntity>> PEDESTAL_BLOCK =
+            BLOCK_ENTITIES.register("pedestal_be", () ->
+                    BlockEntityType.Builder.of(PedestalEntity::new, ModBlocks.PEDESTAL_BLOCK.get()).build(null));
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

@@ -1,6 +1,7 @@
 package main;
 
 import com.mojang.logging.LogUtils;
+import com.sun.jna.platform.win32.WinNT;
 import main.Blocks.ModBlocks;
 import main.Entities.ModEntities;
 import main.Items.ModItems;
@@ -11,7 +12,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.api.distmarker.Dist;
@@ -93,6 +93,8 @@ public class Main {
             event.accept(CurioItems.SLOTH_OMEN);
             event.accept(CurioItems.PRIDE_OMEN);
             event.accept(CurioItems.WRATH_OMEN);
+            event.accept(ModItems.ALTAR_BLOCK_ITEM);
+            event.accept(ModItems.PEDESTAL_BLOCK_ITEM);
         }
     }
 

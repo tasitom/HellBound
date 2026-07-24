@@ -19,8 +19,9 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public class AltarControllerBlock extends Block implements EntityBlock {
     public static IntegerProperty altar_state = IntegerProperty.create("altar_state",0,2);
+    public static IntegerProperty Sins = IntegerProperty.create("sin",0,7);
     public AltarControllerBlock(Properties props) { super(props);
-        registerDefaultState(defaultBlockState().setValue(altar_state,0));
+        registerDefaultState(defaultBlockState().setValue(altar_state,0).setValue(Sins,0));
     }
 
     @Override
@@ -36,13 +37,12 @@ public class AltarControllerBlock extends Block implements EntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(altar_state);
+        builder.add(altar_state,Sins);
     }
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (stack.is(ModBlocks.CANDLE_ENVY.asItem()) && state.getValue(altar_state)<2){
-
             level.setBlockAndUpdate(pos,state.setValue(altar_state,state.getValue(altar_state)+1));
             return ItemInteractionResult.SUCCESS;
         }
