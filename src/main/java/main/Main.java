@@ -5,6 +5,7 @@ import com.sun.jna.platform.win32.WinNT;
 import main.Blocks.ModBlocks;
 import main.Entities.ModEntities;
 import main.Items.ModItems;
+import main.Particles.CandleParticles;
 import main.curios.CurioItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -50,6 +51,7 @@ public class Main {
         ModItems.ITEMS.register(modEventBus);
         CurioItems.OMENS.register(modEventBus);
         ModEntities.register(modEventBus);
+        CandleParticles.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);

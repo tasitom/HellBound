@@ -22,13 +22,14 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 
 public class CorruptedCandle extends CandleBlock implements Corruption {
-    private  SimpleParticleType particleTypes ;
+    private  Supplier<SimpleParticleType> particleTypes ;
     private String type;
     private ChatFormatting color;
-    public CorruptedCandle(Properties p_152801_,SimpleParticleType particleTypes,String type,ChatFormatting color) {
+    public CorruptedCandle(Properties p_152801_,Supplier<SimpleParticleType> particleTypes,String type,ChatFormatting color) {
         super(p_152801_);
         this.particleTypes = particleTypes;
         this.type=type;
@@ -45,7 +46,9 @@ public class CorruptedCandle extends CandleBlock implements Corruption {
 
     @Override
     public void animateTick(BlockState p_220697_, Level p_220698_, BlockPos p_220699_, RandomSource p_220700_) {
-        super.animateTick(p_220697_, p_220698_, p_220699_, p_220700_);
+        // Intentionally do NOT call super.animateTick(...): AbstractCandleBlock's
+        // version spawns the vanilla SMOKE + SMALL_FLAME particles and fire sound,
+        // which we replace with our own custom particle below.
         long time = p_220698_.getDayTime() % 24000;
         if (time>13000 && !p_220698_.getBlockState(p_220699_).getValue(LIT))
         {
@@ -58,7 +61,7 @@ public class CorruptedCandle extends CandleBlock implements Corruption {
         }
         if (p_220697_.getValue(LIT)){
             if (p_220700_.nextInt(2)==0){
-            p_220698_.addParticle(particleTypes,p_220699_.getX()+0.5,p_220699_.getY()+1,p_220699_.getZ()+0.5,0,0.01,0);
+            p_220698_.addParticle(particleTypes.get(),p_220699_.getX()+0.5,p_220699_.getY()+1,p_220699_.getZ()+0.5,0,0.01,0);
         }
         }
     }
@@ -71,7 +74,7 @@ public class CorruptedCandle extends CandleBlock implements Corruption {
             double dy = (random.nextDouble() - 0.5) * 0.6;
             double dz = (random.nextDouble() - 0.5) * 0.6;
             level.addParticle(
-                    particleTypes,
+                    particleTypes.get(),
                     x + dx, y + dy, z + dz,
                     dx * 0.5, dy * 0.5, dz * 0.5
             );
@@ -92,4 +95,5 @@ public class CorruptedCandle extends CandleBlock implements Corruption {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
         tooltipComponents.add(SetDescription(type,color));
     }
+
 }
