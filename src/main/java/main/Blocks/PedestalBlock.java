@@ -1,7 +1,12 @@
 package main.Blocks;
 
 import main.Entities.PedestalEntity;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
@@ -13,7 +18,11 @@ import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.neoforged.neoforge.common.NeoForgeConfig;
+import org.apache.logging.log4j.core.jmx.Server;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Set;
 
 public class PedestalBlock extends Block implements EntityBlock {
     public PedestalBlock(Properties properties) {
@@ -27,6 +36,9 @@ public class PedestalBlock extends Block implements EntityBlock {
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+        ServerLevel hell = player.getServer().getLevel(ResourceKey.create(
+                Registries.DIMENSION,
+                ResourceLocation.fromNamespaceAndPath("hellbound", "hell")));
         if (!level.isClientSide) {
             BlockEntity be = level.getBlockEntity(pos);
             if (be instanceof PedestalEntity pedestal) {

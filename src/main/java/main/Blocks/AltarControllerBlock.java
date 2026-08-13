@@ -6,6 +6,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
@@ -16,6 +17,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
+
+import javax.swing.*;
 
 public class AltarControllerBlock extends Block implements EntityBlock {
     public static IntegerProperty altar_state = IntegerProperty.create("altar_state",0,2);
@@ -23,7 +29,7 @@ public class AltarControllerBlock extends Block implements EntityBlock {
     public AltarControllerBlock(Properties props) { super(props);
         registerDefaultState(defaultBlockState().setValue(altar_state,0).setValue(Sins,0));
     }
-
+    private VoxelShape Box0 = Shapes.box(0,0,0,1,0.6,1);
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new AltarBe(pos, state);
@@ -47,5 +53,14 @@ public class AltarControllerBlock extends Block implements EntityBlock {
             return ItemInteractionResult.SUCCESS;
         }
         return ItemInteractionResult.FAIL;
+    }
+
+    @Override
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        Integer boxstate = state.getValue(altar_state);
+        if (boxstate==0){
+            return Box0;
+        }
+        return super.getShape(state,level,pos,context);
     }
 }

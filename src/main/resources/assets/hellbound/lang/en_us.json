@@ -15,5 +15,7 @@
   "block.hellbound.gluttony_candle": "Ethereal Candle",
   "block.hellbound.greed_candle": "Ethereal Candle",
   "block.hellbound.flesh_block": "Flesh Block",
-  "item.hellbound.ruined_page": "Ruined Page"
+  "item.hellbound.ruined_page": "Ruined Page",
+  "block.hellbound.altar_block": "Altar",
+  "block.hellbound.pedestal_block": "Pedestal"
 }

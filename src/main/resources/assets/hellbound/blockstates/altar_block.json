@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "altar_state=0": {
+      "model": "hellbound:block/destroyed_altar"
+    },
+    "altar_state=1": {
+      "model": "hellbound:block/full_altar"
+    },
+    "altar_state=2": {
+      "model": "hellbound:block/half_altar"
+    },
+    "sin=1": {
+      "model": "hellbound:block/half_altar"
+    },
+    "sin=2": {
+      "model": "hellbound:block/half_altar"
+    },
+    "sin=3": {
+      "model": "hellbound:block/half_altar"
+    },
+    "sin=4": {
+      "model": "hellbound:block/half_altar"
+    },
+    "sin=5": {
+      "model": "hellbound:block/half_altar"
+    },
+    "sin=6": {
+      "model": "hellbound:block/half_altar"
+    },
+    "sin=7": {
+      "model": "hellbound:block/half_altar"
+    }
+  }
+}

@@ -42,7 +42,6 @@ public class AltarBe extends BlockEntity {
         }
     }
     private void onFormed() {
-
         System.out.println("Formed");
     }
     public boolean isActive(Level level){return level.getDayTime()%24000 >13000;}

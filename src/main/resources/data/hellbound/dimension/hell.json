@@ -1,0 +1,11 @@
+{
+  "type": "hellbound:hell",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "hellbound:hell",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "minecraft:small_end_islands"
+    }
+  }
+}
