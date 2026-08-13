@@ -16,8 +16,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Set;
-
 public class PedestalBlock extends Block implements EntityBlock {
     public PedestalBlock(Properties properties) {
         super(properties);
