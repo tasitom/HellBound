@@ -17,5 +17,13 @@
   "block.hellbound.flesh_block": "Flesh Block",
   "item.hellbound.ruined_page": "Ruined Page",
   "block.hellbound.altar_block": "Altar",
-  "block.hellbound.pedestal_block": "Pedestal"
+  "block.hellbound.pedestal": "Pedestal",
+  "item.hellbound.gluttony_omen": "Gluttony Sigil",
+  "item.hellbound.envy_omen": "Envy Sigil",
+  "item.hellbound.sloth_omen": "Sloth Sigil",
+  "item.hellbound.greed_omen": "Greed Sigil",
+  "item.hellbound.lust_omen": "Lust Sigil",
+  "item.hellbound.pride_omen": "Pride Sigil",
+  "item.hellbound.wrath_omen": "Wrath Sigil"
+
 }

@@ -1,6 +1,7 @@
 package main.Items;
 
 import main.Blocks.ModBlocks;
+import main.GeckolibRelated.GeoBlockItem;
 import main.Main;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -27,7 +28,7 @@ public class ModItems {
     public static DeferredItem<BlockItem> CANDLE_GREED_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.CANDLE_GREED);
     public static DeferredItem<RuinedPaper> RUINED_PAPER = ITEMS.register("ruined_page",properties -> new RuinedPaper(new Item.Properties()) );
     public static DeferredItem<BlockItem> ALTAR_BLOCK_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.Altar_BLOCK);
-    public static DeferredItem<BlockItem> PEDESTAL_BLOCK_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.PEDESTAL_BLOCK);
+    public static DeferredItem<GeoBlockItem> PEDESTAL_BLOCK_ITEM = ITEMS.register("pedestal",properties -> new GeoBlockItem(ModBlocks.PEDESTAL_BLOCK.get(),new Item.Properties()));
 
 
     public void register(IEventBus iEventBus){

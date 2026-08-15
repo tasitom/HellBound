@@ -30,7 +30,7 @@ public class AltarBe extends BlockEntity {
         if (level.isClientSide) return;
         int stage = state.getValue(AltarControllerBlock.altar_state);
         boolean nowFormed = SinAltarPattern.matchesAny(level,pos);
-        if (nowFormed != be.formed && stage==2 ) {
+        if (!be.formed && nowFormed){
             be.formed = nowFormed;
             BlockState newState = state.setValue(AltarControllerBlock.Sins, sins.get(SinAltarPattern.get_Sin(level, pos)));
             level.setBlockAndUpdate(pos, newState);
@@ -38,7 +38,13 @@ public class AltarBe extends BlockEntity {
             level.sendBlockUpdated(pos, state, state, Block.UPDATE_ALL);
             System.out.println(level.getBlockState(pos).getValue(AltarControllerBlock.Sins));
             System.out.println(sins.get(SinAltarPattern.get_Sin(level,pos)));
-            if (nowFormed) be.onFormed();
+        }
+        else if (be.formed && !nowFormed){
+            be.formed = nowFormed;
+            BlockState newState = state.setValue(AltarControllerBlock.Sins, 0);
+            level.setBlockAndUpdate(pos, newState);
+            be.setChanged();
+            level.sendBlockUpdated(pos, state, state, Block.UPDATE_ALL);
         }
     }
     private void onFormed() {
