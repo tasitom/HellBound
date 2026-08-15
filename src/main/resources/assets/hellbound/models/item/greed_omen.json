@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "hellbound:item/normal3"
+    "layer0": "hellbound:item/greed_omen"
   }
 }
