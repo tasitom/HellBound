@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import java.awt.*;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class RuinedPageScreen extends Screen {
@@ -19,7 +20,20 @@ public class RuinedPageScreen extends Screen {
     private static final ResourceLocation first_ring = ResourceLocation.fromNamespaceAndPath(Main.MODID,"textures/gui/box1.png");
     private static final ResourceLocation inside_ring = ResourceLocation.fromNamespaceAndPath(Main.MODID,"textures/gui/inside_ring.png");
     private static final ResourceLocation circle = ResourceLocation.fromNamespaceAndPath(Main.MODID,"textures/gui/circle.png");
-    private static final int btnSize = 15;
+    // the node circles drawn on inside_ring are 22px across (18px of clear interior)
+    private static final int btnSize = 22;
+    // bounds of the actual glyph inside each 32x32 sigil texture: minX, minY, maxX, maxY (inclusive).
+    // the glyphs are neither centred nor uniformly sized on their canvas, so the buttons use these
+    // to line every sigil up in its node circle at a matching size
+    private static final Map<String, int[]> sigilBounds = Map.of(
+            "Pride", new int[]{10, 6, 20, 25},
+            "Envy", new int[]{8, 6, 21, 25},
+            "Sloth", new int[]{10, 6, 20, 25},
+            "Gluttony", new int[]{9, 7, 20, 25},
+            "Greed", new int[]{8, 7, 22, 21},
+            "Wrath", new int[]{7, 8, 21, 22},
+            "Lust", new int[]{11, 7, 19, 25}
+    );
     private record SinDef(String name, int dx, int dy, int color) {}
     private final Map<String, ModButtons> sinButtons = new LinkedHashMap<>();
     public RuinedPageScreen(Component title) {
@@ -35,27 +49,27 @@ public class RuinedPageScreen extends Screen {
         int panelY = (height / 4) - 15;
         initSinButtons(panelX,panelY);
     }
-    private WidgetSprites CreateWidget(String name){
-        return new WidgetSprites(ResourceLocation.fromNamespaceAndPath(Main.MODID, name+"_neutral"),
-                ResourceLocation.fromNamespaceAndPath(Main.MODID, name+"_clicked"),
-                ResourceLocation.fromNamespaceAndPath(Main.MODID, name+"_hovered"),
-                ResourceLocation.fromNamespaceAndPath(Main.MODID, name+"_clicked"));
+    private WidgetSprites CreateSigilWidget(String sinName){
+        ResourceLocation sigil = ResourceLocation.fromNamespaceAndPath(Main.MODID,
+                sinName.toLowerCase(Locale.ROOT)+"_sigil_black");
+        return new WidgetSprites(sigil, sigil);
     }
     private void initSinButtons(int panelX, int panelY) {
+        // offsets are the centres of the node circles on inside_ring, relative to its middle
         List<SinDef> defs = List.of(
-                new SinDef("Pride",0,0, ChatFormatting.GRAY.getColor()),
-                new SinDef("Envy",0,-40, ChatFormatting.GREEN.getColor()),
-                new SinDef("Sloth",39,-20, ChatFormatting.AQUA.getColor()),
-                new SinDef("Gluttony",40,20, ChatFormatting.RED.getColor()),
+                new SinDef("Pride",0,1, ChatFormatting.GRAY.getColor()),
+                new SinDef("Envy",0,-42, ChatFormatting.GREEN.getColor()),
+                new SinDef("Sloth",38,-20, ChatFormatting.AQUA.getColor()),
+                new SinDef("Gluttony",39,20, ChatFormatting.RED.getColor()),
                 new SinDef("Greed",0,43, ChatFormatting.YELLOW.getColor()),
-                new SinDef("Wrath",-39,20, ChatFormatting.BLUE.getColor()),
-                new SinDef("Lust",-40,-20, ChatFormatting.LIGHT_PURPLE.getColor())
+                new SinDef("Wrath",-38,21, ChatFormatting.BLUE.getColor()),
+                new SinDef("Lust",-39,-19, ChatFormatting.LIGHT_PURPLE.getColor())
         );
         for (SinDef d : defs) {
             ModButtons btn = new ModButtons(
                     panelX + d.dx(), panelY + d.dy(), btnSize, btnSize,
-                    CreateWidget("button"),
-                    b ->System.out.println(d.name+" Button pressed"),d.name(), d.color());
+                    CreateSigilWidget(d.name()),
+                    b ->System.out.println(d.name+" Button pressed"),d.name(), d.color(), sigilBounds.get(d.name()));
             sinButtons.put(d.name(), btn);
             buttonList.add(btn);
         }
